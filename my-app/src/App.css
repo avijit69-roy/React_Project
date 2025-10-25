@@ -1,11 +1,190 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body{
+  background-color: black;
+  color: greenyellow
+  
 }
 
-.logo {
+#root {
+  max-width: 128px;
+  margin: 0 auto;
+  padding: 6rem;
+  text-align: center;
+   display: flex;  
+  justify-content: center;
+}
+
+.todo-container{
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.todolist{
+  font-size: 30px;
+  display: flex;  
+  text-align: center;
+  justify-content: center; 
+  align-items: center;
+  min-height: 20px; 
+  width: 100%;
+
+              /* center text horizontally & vertically */
+}
+
+input{
+  width: 250px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  font-size: 10px;
+  margin-left: 10px;
+
+}
+
+/* button{
+  background-color: rgb(29, 153, 25);
+  padding: 20px;
+  margin: 50px;
+  border-radius: 10%;
+  
+} */
+.div_change{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+ 
+}
+
+ol{
+  padding:0;
+  border-left: 10px;
+}
+
+li{
+  font-size: 20px;
+  margin-left: 40px;
+  margin-top: 5px;
+  display: flex;              /* center text horizontally & vertically */
+  justify-content: flex-start;
+  align-items: center;
+  background-color: hsla(0, 48%, 17%, 0.349);
+  padding: 10px;           /* Adds breathing room */
+  border-radius: 10px;
+  gap: 5px;               /* Adds spacing between text and buttons */
+  list-style: none;        /* Removes bullet points */
+  width: fit-content;
+  height: fit-content;
+}
+
+.add_button  {
+  background-color: rgb(10, 120, 25);
+  padding: 12px 24px;         /* space inside button */
+  height: 35px;
+  width: 100px;
+  margin: 30px;
+  border: 1px solid aqua;
+  border-radius: 10px;
+  font-size: 12px;            /* reasonable size */
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  display: flex;              /* center text horizontally & vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.btn  {
+  background-color: rgb(190, 10, 10);
+  padding: 8px 12px;         /* space inside button */
+  margin: 10px;
+  border: 3px solid aqua;
+  border-radius: 10px;
+  font-size: 12px;            /* reasonable size */
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  display: flex;              /* center text horizontally & vertically */
+  justify-content: center;
+  align-items: center;
+}
+ 
+
+select{
+  width: 150px ;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  font-size: 30px;
+  margin-left: 10px;
+  align-items: center;
+ 
+}
+
+
+
+/*.btn:active{
+  background-color: orangered;  
+  /* height: 220px;
+   
+    width: 50px;     
+    border-radius: 100%;
+    padding-left: 20px; */
+    
+/*} */
+
+
+/* .Welcome{
+  color: yellow;
+  background-color: green;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.Loggedin_promt{
+  color: yellow;
+  background-color: red;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.counter_container{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.count_display{
+  font-size: 40px;
+  color: aqua;
+}
+
+.add_button  {
+  background-color: rgb(100, 15, 25);
+  padding: 20px;
+  margin: 50px;
+  border-radius: 10%;
+  border-radius: 10px ;
+  border-color: aqua;
+  cursor: pointer;
+}
+
+.counter_button:hover  {
+  background-color: rgb(70, 15, 25);
+ 
+} */
+
+
+
+
+
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -17,6 +196,13 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: green;
+}
+
 
 @keyframes logo-spin {
   from {
@@ -39,4 +225,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
