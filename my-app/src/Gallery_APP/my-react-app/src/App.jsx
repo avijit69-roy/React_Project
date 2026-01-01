@@ -72,7 +72,7 @@ import Card from './Component/Card.jsx'
                               }}>
                                 Prvevious
                               </button>
-
+ 
                               <h3 className='p-4'>Page {Index}</h3>
 
                               <button className='text-black text-sm rounded w-18 active:scale-90 justify-center h-8 m-3 bg-cyan-400'
