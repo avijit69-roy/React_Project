@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { DataContext } from '../../Context/AuthProvider'
+import React from 'react'
 
-const Alltask = () => {
+const Alltask = ({ employees }) => {
 
-    const Authdata = useContext(DataContext);
+    if (!employees || employees.length === 0) return null;
+
     return (
         <div className='mt-10 p-5 bg-[rgb(32,32,31)] h-60 '>
 
@@ -15,15 +15,31 @@ const Alltask = () => {
                 <h3 className='text-xl font-medium w-1/5 text-black'>Failed</h3>
             </div>
 
+            <div className='h-[80%] overflow-auto'>
+                {employees.map((elem, idx) => (
+                    <div
+                        key={idx}
+                        className='bg-black p-4 border-red-400 mb-2 text-xl font-bold text-white flex rounded justify-between items-center'
+                    >
+                        <h2 className='text-xl font-medium w-1/5 text-white'>
+                            {elem.firstName}
+                        </h2>
 
-            <div className='h-[80%] overflow-auto'> 
-                {Authdata && Authdata.employee.map((elem, idx) => (
-                    <div key={idx} className='bg-black p-4 border-red-400 mb-2 text-xl font-bold text-white flex rounded justify-between items-center'>
-                        <h2 className='text-xl font-medium w-1/5 text-white'>{elem.firstName}</h2>
-                        <h3 className='text-xl font-medium w-1/5 text-blue-600'>{elem.taskCount.newTask}</h3>
-                        <h3 className='text-xl font-medium w-1/5 text-yellow-300'>{elem.taskCount.active}</h3>
-                        <h3 className='text-xl font-medium w-1/5 text-green-600'>{elem.taskCount.completed}</h3>
-                        <h3 className='text-xl font-medium w-1/5 text-red-600'>{elem.taskCount.failed}</h3>
+                        <h3 className='text-xl font-medium w-1/5 text-blue-600'>
+                            {elem.taskCount?.newTask || 0}
+                        </h3>
+
+                        <h3 className='text-xl font-medium w-1/5 text-yellow-300'>
+                            {elem.taskCount?.active || 0}
+                        </h3>
+
+                        <h3 className='text-xl font-medium w-1/5 text-green-600'>
+                            {elem.taskCount?.completed || 0}
+                        </h3>
+
+                        <h3 className='text-xl font-medium w-1/5 text-red-600'>
+                            {elem.taskCount?.failed || 0}
+                        </h3>
                     </div>
                 ))}
             </div>

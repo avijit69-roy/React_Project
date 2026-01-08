@@ -3,7 +3,7 @@ const employees = [
   {
     id: 1,
     firstName: "Amit",
-    email: "e@e.com",
+    email: "e1@e.com",
     password: "123",
     taskCount: {
       active: 1,
@@ -47,7 +47,7 @@ const employees = [
   {
     id: 2,
     firstName: "Rohit",
-    email: "employee2@example.com",
+    email: "e2@e.com",
     password: "123",
     taskCount: {
       active: 1,
@@ -91,7 +91,7 @@ const employees = [
   {
     id: 3,
     firstName: "Priya",
-    email: "employee3@example.com",
+    email: "e3@e.com",
     password: "123",
     taskCount: {
       active: 1,
@@ -135,7 +135,7 @@ const employees = [
   {
     id: 4,
     firstName: "Neha",
-    email: "employee4@example.com",
+    email: "e4@e.com",
     password: "123",
     taskCount: {
       active: 2,
@@ -179,7 +179,7 @@ const employees = [
   {
     id: 5,
     firstName: "Suresh",
-    email: "employee5@example.com",
+    email: "e5@e.com",
     password: "123",
     taskCount: {
       active: 1,

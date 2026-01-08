@@ -1,51 +1,60 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
-const CreateTask = () => {
+const CreateTask = ({ employees, setEmployees }) => {
 
-    const [taskTitle, setTaskTitle] = useState("")
-    const [taskDate, setTaskDate] = useState("")
-    const [assignTo, setAssignTo] = useState("")
-    const [category, setCategory] = useState("")
-    const [taskDescription, setTaskDescription] = useState("")
+  const [taskTitle, setTaskTitle] = useState("");
+  const [taskDate, setTaskDate] = useState("");
+  const [assignTo, setAssignTo] = useState("");
+  const [category, setCategory] = useState("");
+  const [taskDescription, setTaskDescription] = useState("");
 
-    const [newTask, setnewTask] = useState([]);
+  console.log(employees)
+  const SubmitHandeler = (e) => {
+    e.preventDefault();
 
-    const SubmitHandeler = (e) => {
-        e.preventDefault();
-        const MTask = {
-            taskTitle,
-            taskDate,
-            assignTo,
-            category,
-            taskDescription,
-            active: false,
-            newTask: true,
-            completed: false,
-            failed: false
+    const MTask = {
+      taskTitle,
+      taskDate,
+      category,
+      taskDescription,
+      active: false,
+      newTask: true,
+      completed: false,
+      failed: false
+    };
+
+    const updatedEmployees = employees.map((emp) => {
+      if (emp.firstName === assignTo) {
+        return {
+          ...emp,
+          tasks: [...emp.tasks, MTask],
+          taskCount: {
+            ...emp.taskCount,
+            newTask: emp.taskCount.newTask + 1
+          }
         };
-        setnewTask([MTask]);
+      }
+      return emp;
+    });
 
-        const data2 = JSON.parse(localStorage.getItem("employeesData")); 
-        console.log(data2);
-        data2.forEach((emp) => {
-            if (emp.firstName ===  assignTo) {
-                emp.tasks.push(newTask);
-                emp.taskCount.newTask += 1;
-            }
-        });
-        localStorage.setItem("employeesData", JSON.stringify(data2));
-        // console.log(taskTitle, taskDate, assignTo, category, taskDescription);
-        setTaskTitle("");
-        setTaskDate("");
+    // ✅ 1. UPDATE STATE (UI)
+    setEmployees(updatedEmployees);
 
-        setAssignTo("");
-        setCategory("");
-        setTaskDescription("");
-    }
+    // ✅ 2. UPDATE localStorage (SAVE)
+    localStorage.setItem(
+      "employeesData",
+      JSON.stringify(updatedEmployees)
+    );
 
-    useEffect(() => {
-            console.log("Task updated:", newTask);
-        }, [newTask]);
+    // Reset form
+    setTaskTitle("");
+    setTaskDate("");
+    setAssignTo("");
+    setCategory("");
+    setTaskDescription("");
+    // window.location.reload();
+  };
+
 
     return (
         <div className='mt-10 p-5 bg-[rgb(32,32,31)] rounded'>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const AcceptTask = ({data}) => {
-   
+
     return (
         <div className='flex-shrink-0 h-full w-[500px] justify-between bg-emerald-600 rounded-xl p-3'>
 

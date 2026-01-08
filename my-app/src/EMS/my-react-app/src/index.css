@@ -7,9 +7,9 @@
   }
 }
 
-#TaskList::-webkit-scrollbar {
+/* #TaskList::-webkit-scrollbar {
   display: none;
-}
+} */
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
