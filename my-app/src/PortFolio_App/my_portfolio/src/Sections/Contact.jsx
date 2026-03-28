@@ -2,7 +2,7 @@ import {
   Mail,
   Phone,
   MapPin,
-  Send,
+  Send,  
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
@@ -62,7 +62,7 @@ const Contact = () => {
       await emailjs.send(
         serviceId,
         templateId,
-        {
+        {         
           name: formData.name,
           email: formData.email,
           message: formData.message,

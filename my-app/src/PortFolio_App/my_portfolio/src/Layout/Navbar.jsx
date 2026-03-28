@@ -70,7 +70,8 @@ const Navbar = () => {
                 key={indx} 
                 href={link.href} 
                 onClick={()=>setIsMobileMenuOpen(false)}
-                className="text-lg  text-muted-foreground hover:text-foreground py-2">
+                className="text-lg  text-muted-foreground hover:text-foreground py-2"
+              >
                 {link.label}
               </a>
             ))}
