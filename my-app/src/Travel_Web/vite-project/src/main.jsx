@@ -10,6 +10,7 @@ import { Router } from 'lucide-react'
 import { Toaster } from 'sonner'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import Viewtrip from './view-trip/[tripid]/index2.jsx'
+import MyTrips from './my_Trips/index3.jsx'
 
 const router = createBrowserRouter([
       {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             //Dynamic route for viewing a specific trip based on its ID
             path: "/view-trip/:tripid",
             element: <Viewtrip/>
+      },
+      {
+            path: "/my-trips",
+            element:<MyTrips/>
       }
 
 

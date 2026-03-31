@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import InfoSection from '../components/InfoSection';
 import Hotels from '../components/Hotels';
 import PlacesToVisit from '../components/PlacesToVisit';
+import Footer from '../components/Footer';
 
 function Viewtrip() {
 
@@ -18,7 +19,7 @@ function Viewtrip() {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
+            // console.log("Document data:", docSnap.data());
             setTripdata(docSnap.data()); // Set the trip data in state
         } else {
             // docSnap.data() will be undefined in this case
@@ -32,7 +33,7 @@ function Viewtrip() {
     }, [tripid]); // Re-run the effect if the tripid changes
 
     return (
-        <div className='p-10 md:px-20 lg:px-44 xl:px-60'>
+        <div className='p-10 mt-6 md:px-20 lg:px-44 xl:px-60'>
             {/* Information Section */}
             <InfoSection tripdata={tripdata} />
 
@@ -44,6 +45,7 @@ function Viewtrip() {
             <PlacesToVisit tripdata={tripdata}/>
 
             {/* Footer*/}
+            <Footer/>
 
         </div>
     )
