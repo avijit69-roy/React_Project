@@ -63,7 +63,8 @@ function Header() {
       <div>
         {user ?
           <div className='flex gap-5'>
-            
+          
+        
             <a href="/create-trip">
               <Button variant="contained" color="primary" className='rounded-full hover:scale-110 border-2 border-blue-500 h-[50px] w-[100px] text-l'> + Create Trip</Button>
             </a>
