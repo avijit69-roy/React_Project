@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Autocomplete, LoadScript } from "@react-google-maps/api";
 import { AI_PROMPT, SelectBudgetOptions, SelectTravelesList } from "../constants/Option";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/Checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { FcGoogle } from "react-icons/fc";
 import { generateTravelPlan } from "../Service/AIModel";
