@@ -8,6 +8,7 @@ function MyTrips() {
 
     const [Usertrip, setUserTrips] = useState([]);
     const navigation = useNavigation();
+    
     useEffect(() => {
         GetUserTrips();
     }, []);
@@ -45,25 +46,6 @@ function MyTrips() {
 
                 ))}
 
-
-
-
-
-                {/* {Usertrip.length === 0 ? (
-                    <p className='text-xl mt-5'>You have no trips yet. Start planning your next adventure!</p>
-                ) : (   
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5'>
-                        {Usertrip.map((trip, index) => (
-                            <div key={index} className='border rounded-lg p-4 shadow-md'>       
-                                <h2 className='text-xl font-semibold mb-2'>{trip.TripName}</h2>
-                                <p className='text-gray-600 mb-2'>Destination: {trip.Destination}</p>
-                                <p className='text-gray-600 mb-2'>Duration: {trip.Duration} days</p>
-                                <p className='text-gray-600 mb-2'>Budget: ${trip.Budget}</p>
-                                <a href={`/view-trip/${trip.TripID}`} className='text-blue-500 hover:underline'>View Details</a>
-                            </div>  
-                        ))}
-                    </div>
-                )} */}
             </div>
         </div>
     )

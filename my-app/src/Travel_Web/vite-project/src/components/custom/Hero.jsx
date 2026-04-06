@@ -10,13 +10,14 @@ function Hero() {
         <span className='text-[#007bff]'>Discover </span>amazing destinations and create unforgettable memories.
       </h1>
       <p className='text-xl text-muted-foreground font-bold text-center'>
-        Explore our curated selection of travel experiences and make y   o ur next adventure worthy.
+        Explore our curated selection of travel experiences and make your next adventure worthy.
       </p>
       
       <Link to="/create-trip">
         <Button>Get Started,It's Free</Button>
       </Link>
 
+      
     </div>
   )
 }

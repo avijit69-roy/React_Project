@@ -182,7 +182,8 @@ const CreateTrip = () => {
   };
 
   // Generate itinerary
-  const handleGenerateTrip = async () => {
+  const handleGenerateTrip = async () => { 
+
 
     const user = localStorage.getItem("user");
     if (!user) {
