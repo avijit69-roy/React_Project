@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("./assets/fonts/Montserrat.woff");
+}
+
+.align_center{
+  display: flex;
+  align-items: center
+}
+
+@layer base {
+  body {
+    @apply m-1 p-0;
+    font-size: 16px;
+    background-color: #f6f8fa;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+}
+
+a{
+  font-weight: 550;
+  text-decoration: none;
+}

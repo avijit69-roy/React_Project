@@ -107,7 +107,8 @@ const Hero = () => {
                   <a
                     key={index}
                     href={social.href}
-                    className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                    className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary 
+                    transition-all duration-300"
                   >
                     {<social.icon className="w-5 h-5" />}
                   </a>
@@ -149,7 +150,9 @@ const Hero = () => {
             <div className='flex animate-marquee'>
               {[...skills,...skills].map((skill, idx) => (
                 <div key={idx} className="flex-shrink-0 px-8 py-4">
-                  <span className="text-xl font-semibold text-muted-foreground/50 cursor-pointer hover:text-muted-foreground transition-colors duration-100 ">
+                  <span className="text-xl font-semibold text-muted-foreground/50 cursor-pointer
+                   hover:text-muted-foreground 
+                    transition-colors duration-100 ">
                     {skill}
                   </span>
                 </div>
@@ -166,7 +169,8 @@ const Hero = () => {
       >
         <a
           href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          className="flex flex-col items-center gap-2 text-muted-foreground
+           hover:text-primary transition-colors group"
         >
           <span className="text-xs uppercase tracking-wider">Scroll</span>
           <ChevronDown className="w-6 h-6 animate-bounce" />

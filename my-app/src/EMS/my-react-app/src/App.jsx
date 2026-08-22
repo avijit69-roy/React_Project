@@ -13,7 +13,7 @@ function App() {
   const [User, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-
+ 
   // Using Context API
   const AuthData = useContext(DataContext);
   // console.log(AuthData.employee);

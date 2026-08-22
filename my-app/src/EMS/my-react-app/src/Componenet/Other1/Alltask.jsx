@@ -20,7 +20,7 @@ const Alltask = ({ employees }) => {
                     <div
                         key={idx}
                         className='bg-black p-4 border-red-400 mb-2 text-xl font-bold text-white flex rounded justify-between items-center'
-                    >
+                    > 
                         <h2 className='text-xl font-medium w-1/5 text-white'>
                             {elem.firstName}
                         </h2>

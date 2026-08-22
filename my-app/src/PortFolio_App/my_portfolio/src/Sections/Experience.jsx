@@ -36,7 +36,8 @@ const Experience = () => {
                           font-medium tracking-wider uppercase">
             Career Journey
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in
+           animation-delay-100 text-secondary-foreground">
             Experience that shapes my journey
             <span className="font-serif italic font-normal text-white">{" "} Speaks volumes.
             </span>
@@ -52,14 +53,14 @@ const Experience = () => {
         </div>
         {/* Experience Timeline */}
         <div className='relative'>
-         
+
           <div className='space-y-12'>
             {experiences.map((exp, index) => (
-              <div 
+              <div
                 key={index}
                 className="relative grid mb:grid-cols-2 gap-8 animate-fade-in animation-delay-300"
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}>
-          
+
 
                 {/* Content */}
                 <div className={`pl-8 md:pl-0 `}>
@@ -70,7 +71,8 @@ const Experience = () => {
                     <p className="mt-2 text-sm mt-4 text-muted-foreground">{exp.description}</p>
                     <div className='mt-4 flex flex-wrap'>
                       {exp.technologies.map((tech, techIdx) => (
-                        <span key={techIdx} className=' bg-primary/10 rounded-full mr-3 px-3 py-1 mt-4 text-xs inline-block text-primary/100'>
+                        <span key={techIdx} className=' bg-primary/10 rounded-full mr-3 px-3 
+                          py-1 mt-4 text-xs inline-block text-primary/100'>
                           {tech}
                         </span>
                       )

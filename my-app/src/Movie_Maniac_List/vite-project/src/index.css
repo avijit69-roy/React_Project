@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat.woff");
+}
+
+.align_center{
+  display: flex;
+  align-items: center
+}
+
+@layer base {
+  html,
+  #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-black text-[#fff] m-1 p-0;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .glass-strong {
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }}
