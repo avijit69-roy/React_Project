@@ -22,9 +22,9 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar flex flex-row justify-between px-10 bg-[#fff] ">
+            <nav className="navbar flex flex-row justify-between  px-10 bg-[#fff] ">
 
-                <div className='align_center gap-4'>
+                <div className='align_center gap-4 '>
                     <h1 className="navbar_heading font-extrabold text-[32px] mr-[20px] "> CartWish</h1>
 
                     <form className='align_center navbar_form  '>
@@ -37,16 +37,16 @@ const Navbar = () => {
                 <div className="flex flex-row items-center gap-4">
                     
                     <LinkWithIcon title="Home" link='/' emojee={'🚀'} />
-                    <LinkWithIcon title="Product" link='/' emojee={'🧈'} />
-                    <LinkWithIcon title="LogIn" link='/' emojee={'👏🏻'} />
-                    <LinkWithIcon title="signUp" link='/' emojee={'✨'} />
-                    <LinkWithIcon title="MyOrder" link='/' emojee={'💰'} />
-                    <LinkWithIcon title="LogOut" link='/' emojee={'🔒'} />
+                    <LinkWithIcon title="Product" link='/products' emojee={'🧈'} />
+                    <LinkWithIcon title="LogIn" link='/login' emojee={'👏🏻'} />
+                    <LinkWithIcon title="signUp" link='/signup' emojee={'✨'} />
+                    <LinkWithIcon title="MyOrder" link='/myorders' emojee={'💰'} />
+                    <LinkWithIcon title="LogOut" link='/logout' emojee={'🔒'} />
                                       
-                    <a href='/Cart' className="text-[15px] text-black hover:text-[#03195aa9]">
+                    <NavLink to='/Cart' activeStyle={{ fontWeight: 'bold', color: 'red' }} className="text-[15px] text-black hover:text-[#03195aa9]">
                         Cart
                         <p className='align-center cart_count'> 0 </p>
-                    </a>
+                    </NavLink>
 
                 </div>
 

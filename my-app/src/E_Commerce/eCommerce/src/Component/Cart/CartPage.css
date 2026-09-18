@@ -1,0 +1,61 @@
+.cart_page {
+  flex-direction: column;
+  gap: 8px;
+  width: 60%;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 48px 32px;
+}
+
+.user_info {
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.user_info img {
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+}
+
+.user_name {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+
+.cart_bill {
+  width: 400px;
+  margin: 16px 0 0 auto;
+  background: #ffff;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.cart_bill td {
+  padding: 18px 12px;
+  border: 4px solid #e5e5e5;
+}
+
+.cart_bill td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+.cart_bill .cart_total td {
+
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.checkout_button {
+  align-self: flex-end;
+  height: 38px;
+  margin: 16px 0;
+}
+.table_quantity_input{
+    height:50px;
+    justify-content: center;
+}

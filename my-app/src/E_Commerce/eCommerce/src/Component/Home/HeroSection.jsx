@@ -4,7 +4,7 @@ import './HeroSection.css'
 import iPhone from '../../assets/Iphine16.png' 
 const HeroSection = ({title,subtitle,link,image}) => {
   return (
-    <section className='hero_section '>
+    <section className='hero_section  '>
         <div className='align_center justify-center flex-col text-align-center'>
 
             <h2 className="hero_tittle">{title} </h2>
@@ -12,7 +12,7 @@ const HeroSection = ({title,subtitle,link,image}) => {
                 {subtitle}
             </p>
 
-            <a href="#" className=" hero_link align_Center">
+            <a href="#" className=" hero_link align_center">
                 Bye Now <link/>
             </a>
         </div>
