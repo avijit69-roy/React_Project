@@ -4,6 +4,8 @@ import {useForm} from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useState } from "react";
+import { signup } from "../../services/userServices";
+// import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
 
@@ -12,8 +14,8 @@ const SignupPage = () => {
             name: z.string().min(3,{message:"Name should be at least 3 characters long"}),
             email: z.string().email({message:"Please enter a valid email address"}),
             password: z.string().min(6,{message:"Password must be at least 6 characters long"}),
-            cpassword: z.string().min(6,{message:"Confirm Password must be at least 6 characters long"})
-
+            cpassword: z.string().min(6,{message:"Confirm Password must be at least 6 characters long"}),
+            deliveryAddress: z.string().min(15,{message:"Address must be at least 15 characters long"})
         })
         .refine((data) => data.password === data.cpassword, {
             message: "Confirm Password does not match Password",
@@ -21,6 +23,8 @@ const SignupPage = () => {
         });
 
     const [ProfilePic, setProfilePic] = useState(null);
+    const [formError, setFormError] = useState("");
+
 
     const {register,
             handleSubmit,
@@ -32,9 +36,19 @@ const SignupPage = () => {
         setProfilePic(file);
     };
 
-    console.log(ProfilePic);
-
-    const onSubmitdata= (formData)=>{ console.log(formData) }
+// Connecting signup js with sign up api
+    const onSubmitdata= async (formData)=>{ 
+        try {
+             await signup(formData,ProfilePic);
+             window.location="/";
+        } 
+        catch (err) {
+            if(err.response && err.response.status===400){
+                console.error("Validation error:", err.response);
+                setFormError(err.response.data.message);
+            }
+        }
+    }
 
     return (
         <section className='align_center form_page'>
@@ -108,16 +122,20 @@ const SignupPage = () => {
                     </div>
 
                     <div className='signup_textares_section'>
-                        <label htmlFor='address'>Delivery Address</label>
+                        <label htmlFor='deliveryAddress'>Delivery Address</label>
                         <textarea
-                            id='address'
+                            id='deliveryAddress'
                             className='input_textarea'
                             placeholder='Enter delivery address'
-                            {...register("address")}
+                            {...register("deliveryAddress")}
                         />
-                    </div>
+                           {errors.deliveryAddress && <em className="form_error">{formError}</em>}
+                    </div> 
                 </div>
 
+
+
+                {formError && <em className="form_error">{formError}</em>}
                 <button className='search_button form_submit' type='submit'>
                     Submit
                 </button>

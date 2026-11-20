@@ -3,13 +3,13 @@ import {useForm} from 'react-hook-form'
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import './LoginPage.css'
-
-
-
+import { login } from '../../services/userServices';
+// import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
-
+    const [formError, setFormError] = useState("");
+ 
     // Define a validation schema using Zod library to validate the form inputs.
     const schema = z.object({
         email: z.string().email({message:"Please enter a valid email address"}).min(3),
@@ -26,9 +26,26 @@ const LoginPage = () => {
             resolver: zodResolver(schema)
         });
 
-        const onSubmitdata= (formData)=>{ console.log(formData) }
+      
+// Connecting login js with login api
+        const onSubmitdata= async  (formData)=>{
+            console.log(formData);
+            try {
+                  await login(formData)
+                  window.location="/";
+            } 
+            catch (err) {
+                if(err.response && err.response.status === 400){
+                console.error("Validation error:", err.response);
+                setFormError(err.response.data.message);
+            }
+            }
+          
+        }
+     
+        // const onSubmitdata= (formData)=>{ console.log(formData) }
 
-    console.log(errors)
+  
 
   return (
     <section className='align_center form_page '>
@@ -62,6 +79,7 @@ const LoginPage = () => {
                         {/* {errors.password?.type === "minLength" && <em className="form_error">Password must be at least 6 characters long</em>}  */}
                 </div>
 
+                 {formError && <em className="form_error">{formError}</em>}
                 <button className="search_button  form_submit">
                     Submit
                 </button>

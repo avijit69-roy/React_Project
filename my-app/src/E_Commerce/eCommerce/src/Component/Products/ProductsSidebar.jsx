@@ -1,21 +1,15 @@
 import React, { useState ,useEffect} from 'react'
 import LinkWithIcon from '../Navbar/LinkWithIcon'
 import { TruckElectric } from 'lucide-react'
-import apiClient from '../../utils/api-client'
+import useData from '../../hooks/useData'
 
 export const ProductsSidebar = () => {
 
-const [categories, setCategories] = useState([]);
-const [error, setError] = useState("");
 
-useEffect(() => {
-  apiClient.get("/category")
-  .then((res)=>{setCategories(res.data)})
-  .catch((err) => {setError(err.message)})
-}, [])
+// Here we are using the custom hook useData to fetch the categories from the API. The hook takes a URL as an argument and returns
+//  the data and any error that may have occurred during the fetch operation.
+const {data:categories,error} = useData("/category")
 
-
-console.log (categories);
 
 
 return (
@@ -29,17 +23,18 @@ return (
 
                  {error && <em className="form_error">{error} </em>}
 
-                {categories.map(category => 
+                {categories !== null && categories.map(category => 
                         
                     <LinkWithIcon 
+                    key={category._id}
                     id={category._id}
                     title={category.name}
-                    link={`products?category=${category.name}`} 
+                    link={`/products?category=${category.name}`} 
                     // emojee={'🚀'} 
                     emojee={`http://localhost:5000/category/${category.image}`}
                     sidebar={true} 
                     />
-                    
+                     
                 )}
 
                 

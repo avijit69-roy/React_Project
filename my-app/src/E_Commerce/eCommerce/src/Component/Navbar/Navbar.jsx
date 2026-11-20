@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useContext} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import "./Navbar.css"
 import LinkWithIcon from './LinkWithIcon';
+import CartContext from '../../contexts/CartContext'
 
+import DataContext from '../../contexts/UserContext'
 const Navbar = () => {
+
+    const user = useContext(DataContext);
+    const {cart,addToCart} = useContext(CartContext);
 
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -38,16 +43,30 @@ const Navbar = () => {
                     
                     <LinkWithIcon title="Home" link='/' emojee={'🚀'} />
                     <LinkWithIcon title="Product" link='/products' emojee={'🧈'} />
-                    <LinkWithIcon title="LogIn" link='/login' emojee={'👏🏻'} />
-                    <LinkWithIcon title="signUp" link='/signup' emojee={'✨'} />
-                    <LinkWithIcon title="MyOrder" link='/myorders' emojee={'💰'} />
-                    <LinkWithIcon title="LogOut" link='/logout' emojee={'🔒'} />
-                                      
-                    <NavLink to='/Cart' activeStyle={{ fontWeight: 'bold', color: 'red' }} className="text-[15px] text-black hover:text-[#03195aa9]">
-                        Cart
-                        <p className='align-center cart_count'> 0 </p>
-                    </NavLink>
+                    
+                    {!user &&
+                        <>
+                        <LinkWithIcon title="LogIn" link='/login' emojee={'👏🏻'} />
+                        <LinkWithIcon title="signUp" link='/signup' emojee={'✨'} />
+                        
+                        </>
+                        
+                    }
 
+                    {user && 
+                        <>
+                       
+                        <LinkWithIcon title="MyOrder" link='/myorders' emojee={'💰'} />
+                        <LinkWithIcon title="LogOut" link='/logout' emojee={'🔒'} /> 
+                        <NavLink to='/Cart' activeStyle={{ fontWeight: 'bold', color: 'red' }} className="text-[15px] text-black hover:text-[#03195aa9]">
+                            Cart
+                            <p className='align-center cart_count'> {cart.length} </p>
+                        </NavLink>
+
+                        </>
+                    }
+                                      
+                    
                 </div>
 
 
