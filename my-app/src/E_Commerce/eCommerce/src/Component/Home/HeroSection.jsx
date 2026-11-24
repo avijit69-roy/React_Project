@@ -1,5 +1,6 @@
 import React from 'react'
 import './HeroSection.css'
+import { Link } from 'react-router-dom'
 // import iPhone from '../../assets/Iphone_2_16.webp' Iphine16.png
 import iPhone from '../../assets/Iphine16.png' 
 const HeroSection = ({title,subtitle,link,image}) => {
@@ -12,9 +13,9 @@ const HeroSection = ({title,subtitle,link,image}) => {
                 {subtitle}
             </p>
 
-            <a href="#" className=" hero_link align_center">
-                Bye Now <link/>
-            </a>
+            <Link to={link} className=" hero_link align_center">
+                Bye Now 
+            </Link>
         </div>
 
         <div className='align_center'>

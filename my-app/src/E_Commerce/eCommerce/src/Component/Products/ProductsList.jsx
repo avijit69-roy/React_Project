@@ -11,42 +11,53 @@ const ProductsList = () => {
     // const [Products, setProducts] = useState([]);
     // const [error, setError] = useState("");
 
-
-
-    // useEffect(() => {
-
-    //     // const fetchProducts = async () => {
-    //     //     try {
-    //     //         const response = await apiClient.get('/products');
-    //     //         setProducts(response.data);
-    //     //     } catch (error) {
-    //     //         setError("Failed to fetch products");
-    //     //     }
-    //     // };  
-
-    //     // fetchProducts(); 
-
-    //     apiClient.get("/products")
-    //     .then(res=>setProducts(res.data.products))
-    //     .catch(err=>setError(err.message))
-    // }, []);
-
     const [searchParams, setSearchParams] = useSearchParams();
-
+    const [sortBy, setsortBy] = useState('');
+    const [sortedProduct, setsortedProduct] = useState([]);
     const category = searchParams.get("category");
     const page = searchParams.get("page")
+    const serachQuery = searchParams.get("search");
 
     const { data, error, isloading } = useData('/products',
         {
             params: {
+
                 category: category,
-                page: page
+                page: page,
+                search: serachQuery
             }
-        }, [category, page])
+        }, [category, page, serachQuery])
 
-
+ 
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8]
 
+    useEffect(() => {
+    
+        if(data && data.products){
+            const products=[...data.products];
+            if(sortBy === 'price desc'){
+                setsortedProduct(products.sort((a,b)=> b.price-a.price));
+            }
+
+            else if(sortBy === 'price asc'){
+                setsortedProduct(products.sort((a,b)=> a.price-b.price));
+            }
+            else if(sortBy === 'rate desc'){
+                setsortedProduct(products.sort((a,b)=> b.reviews.rate-a.reviews.rate));
+            }
+
+            else if(sortBy === 'rate asc'){
+                setsortedProduct(products.sort((a,b)=> a.reviews.rate-b.reviews.rate));
+            }
+            else{
+            setsortedProduct(products);
+            }
+        }    
+
+    }, [sortBy,data])
+    
+
+    // Function to handle page change in pagination
     const handlePageChange = (newpage) => {
 
         // 1. Get existing URL parameters
@@ -69,7 +80,8 @@ const ProductsList = () => {
                     <h2 className='text-[26px]'>
                         Product
                     </h2>
-                    <select name="sort" id="" className='product_sorting'>
+                    <select name="sort" id="" className='product_sorting'
+                        onChange={(e)=>setsortBy(e.target.value)}>
                         <option value="">Relevance</option>
                         <option value="price desc">Price High to Low</option>
                         <option value="price asc">Price Low to High</option>
@@ -85,14 +97,15 @@ const ProductsList = () => {
                     {
                         isloading 
                         ? skeletons.map(n => <ProductCardSkeleton key={n} />)
-                        : data !== null && data.products.map((product) => {
+                        : data !== null && sortedProduct.map((product) => {
                         return (
-                            <ProductCard product={product} key={product._id} img={product.images[0]} id={product._id} title={product.title}
-                                price={product.price} rating={product.reviews.rate}
-                                ratingCount={product.reviews.counts} stock={product.stock}
-                                P_avil={true}
+                            <ProductCard product={product} key={product._id} img={product.images[0]} 
+                                        id={product._id} title={product.title}
+                                        price={product.price} rating={product.reviews.rate}
+                                        ratingCount={product.reviews.counts} stock={product.stock}
+                                        P_avil={true}
  
-                            />
+                            /> 
                         )
                     })
                     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import './LinkWithIcon.css'
 import { Link, NavLink } from 'react-router-dom';
-const LinkWithIcon = ({title,link,emojee,sidebar}) => {
+const  LinkWithIcon = ({title,link,emojee,sidebar}) => {
     return (
     <>
     
